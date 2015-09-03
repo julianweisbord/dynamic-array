@@ -10,9 +10,9 @@ struct myArray{
 };
 
 void init_array(int, struct myArray*);
-
-
-
+void add(int, struct myArray *);
+struct myArray* doubleList(struct myArray* );
+void printer(struct myArray* );
 
 
 
