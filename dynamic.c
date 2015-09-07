@@ -7,25 +7,24 @@ void init_array(int init_len, struct myArray * array){
   array->current_size = 0;
   //create a data array with user input as length
   array->data = malloc(array->length * sizeof(int));
-  // return array;
 }
 
-struct myArray* doubleList(struct myArray *array){
-  // I wonder if this is slower than realloc
+void doubleList(struct myArray *array){
+  // This may be slower than realloc
+  printf("%d\n", array->length);
   if(array->length <= array->current_size){
+    printf("IN IF\n");
+    printf("length: %d, current size: %d", array->length, array->current_size);
     printf("We will double the list...\n");
-    int *new_array = malloc(2 *array->length * sizeof(int));
+    int *new_array = malloc((2 *array->length) * sizeof(int));
     int i =0;
     for (i; i < array->current_size; ++i){
       new_array[i] =array->data[i];
     }
+    array->length*=2;
     array->data = new_array;
 
-    array->length*=2;
-
   }
-  // need to increment length
-  return array;
 }
 
 void printer(struct myArray* array){
@@ -40,14 +39,22 @@ void printer(struct myArray* array){
 
 void add(int element, struct myArray *array){
   // first check if the array isn't big enough
-
-  array = doubleList(array);
-  // array->data[++array->current_size] = element; We dont need brackets :)
-  *(array->data + ++array->current_size) = element;
   ++array->current_size;
+  printf("array length %d\n", array->length);
+  doubleList(array);
+  // array->data[array->current_size-1] = element; We dont need brackets :)
+  *(array->data + array->current_size -1) = element;
+
 }
 
 
 
-
-// Make a clear function
+// Free array
+// void clear(struct myArray *array){
+//   int i=0;
+//   for(i; i< array->current_size; ++i){
+//     free(array->data[i]);
+//   }
+//   printf("after free\n");
+//   printer(array);
+// }

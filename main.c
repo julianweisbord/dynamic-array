@@ -14,6 +14,7 @@ int main(int argc, char **argv){
   do{
     printf("What number would you like to enter into the list?: \n");
     scanf("%d",&num);
+    // each add call seams to delete length? Is it going out of scope?
     add(num,&array);
       // printf("What would you like to do with this list?\n Choice coming soon... \n");
       // scanf("%d\n",&listChoices);
@@ -25,5 +26,7 @@ int main(int argc, char **argv){
 
 // print out array
   printer(&array);
+  // clear(&array);
+// free array
 
 }
