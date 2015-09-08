@@ -4,7 +4,7 @@
 int main(int argc, char **argv){
   struct myArray array;
   char answer;
-  int num, init_len,listChoices;
+  int num, init_len,listChoices, printNum, check;
 
   printf("Initialize the array with how many elements? ");
   scanf("%d", &init_len);
@@ -18,8 +18,12 @@ int main(int argc, char **argv){
     add(num,&array);
       // printf("What would you like to do with this list?\n Choice coming soon... \n");
       // scanf("%d\n",&listChoices);
-      // remove element, print an element at a position
-
+      // remove element
+      //  print an element at a position
+    printf("Would you like to print out a number? If so what position(0 -> x) : \n");
+    scanf("%d", &printNum);
+    //check if they entered int.
+    indexer(&array, printNum);
     printf("Would you like to add another list item to the array?(y/n) \n");
     scanf("%1s", &answer);
   }while(answer=='y');

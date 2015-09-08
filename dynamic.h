@@ -13,6 +13,7 @@ void init_array(int, struct myArray*);
 void add(int, struct myArray *);
 void doubleList(struct myArray* );
 void printer(struct myArray* );
+void indexer(struct myArray*, int);
 
 
 

@@ -31,6 +31,7 @@ void printer(struct myArray* array){
   printf("Here is the array\n");
   int i =0;
   for(i; i< array->current_size; ++i){
+    printf("i %d\n", i);
     printf(" %d,", array->data[i]);
   }
   printf("\n The list is %d long\n", array->current_size);
@@ -45,6 +46,14 @@ void add(int element, struct myArray *array){
   // array->data[array->current_size-1] = element; We dont need brackets :)
   *(array->data + array->current_size -1) = element;
 
+}
+void indexer(struct myArray *array, int printNum){
+  if(printNum < 0 || printNum > array->current_size){
+    printf("No information at this index.");
+  }
+  else{
+    printf("%d\n",array->data[printNum]);
+  }
 }
 
 
