@@ -14,7 +14,7 @@ void doubleList(struct myArray *array){
   printf("%d\n", array->length);
   if(array->length <= array->current_size){
     printf("IN IF\n");
-    printf("length: %d, current size: %d", array->length, array->current_size);
+    printf("length: %d, current size: %d\n", array->length, array->current_size);
     printf("We will double the list...\n");
     int *new_array = malloc((2 *array->length) * sizeof(int));
     int i =0;
@@ -31,7 +31,6 @@ void printer(struct myArray* array){
   printf("Here is the array\n");
   int i =0;
   for(i; i< array->current_size; ++i){
-    printf("i %d\n", i);
     printf(" %d,", array->data[i]);
   }
   printf("\n The list is %d long\n", array->current_size);
@@ -48,7 +47,7 @@ void add(int element, struct myArray *array){
 
 }
 void indexer(struct myArray *array, int printNum){
-  if(printNum < 0 || printNum > array->current_size){
+  if(printNum < 0 || printNum > (array->current_size)){
     printf("No information at this index.");
   }
   else{
