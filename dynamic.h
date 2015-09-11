@@ -14,6 +14,7 @@ void add(int, struct myArray *);
 void doubleList(struct myArray* );
 void printer(struct myArray* );
 void indexer(struct myArray*, int);
+void pop_array(struct myArray*);
 
 
 

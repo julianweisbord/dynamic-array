@@ -55,6 +55,19 @@ void indexer(struct myArray *array, int printNum){
   }
 }
 
+void pop_array(struct myArray * array){
+  if(array->data && array->current_size >0){
+    printf("Array is not null, current size before pop: %d \n", array->current_size);
+    // doesn't make it null
+    array->data[array->current_size-1] = NULL;
+    --array->current_size;
+  }
+  else{
+    printf("Array is null.\n");
+  }
+
+}
+
 
 
 // Free array

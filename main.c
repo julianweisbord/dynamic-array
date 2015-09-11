@@ -38,7 +38,7 @@ int readline( char * buffer, int max ){
 
 int main(int argc, char **argv){
   struct myArray array;
-  char answer;
+  char answer, removeChoice, removeAgain;
   char input_buffer[INPUT_BUFFER_SIZE];
   int num, init_len,listChoices, check, printNum;
 
@@ -54,9 +54,19 @@ int main(int argc, char **argv){
     sscanf(input_buffer, "%d", &num);
     // each add call seams to delete length? Is it going out of scope?
     add(num,&array);
-      // printf("What would you like to do with this list?\n Choice coming soon... \n");
-      // scanf("%d\n",&listChoices);
+    // change this to a table of options
       // remove element
+		printf("Would you like to remove the last element of the array?(y/n)\n");
+		readline(input_buffer, INPUT_BUFFER_SIZE);
+		sscanf(input_buffer, "%1s", &removeChoice);
+		if (removeChoice=='y'){
+			do{
+				pop_array(&array);
+				printf("Would you like to do this again?(y/n)\n");
+				readline(input_buffer, INPUT_BUFFER_SIZE);
+				sscanf(input_buffer, "%1s", &removeAgain);
+			}while(removeAgain=='y');
+		}
       //  print an element at a position
     printf("Would you like to print out a number? If so what position(0 -> x) : \n");
     readline(input_buffer, INPUT_BUFFER_SIZE);
