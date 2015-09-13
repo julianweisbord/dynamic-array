@@ -83,9 +83,10 @@ int main(int argc, char **argv){
     sscanf(input_buffer, "%1s", &answer);
   }while(answer=='y');
 
-// print out array
+  // print out array
   printer(&array);
-  // clear(&array);
-// free array
+  //free array
+  clear(&array);
+
 
 }
