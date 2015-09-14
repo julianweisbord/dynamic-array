@@ -70,14 +70,11 @@ int main(int argc, char **argv){
       //  print an element at a position
     printf("Would you like to print out a number? If so what position(0 -> x) : \n");
     readline(input_buffer, INPUT_BUFFER_SIZE);
-    if(sscanf(input_buffer, "%d", &printNum)!=1){
-      printf("Not a number!\n");
+		// check if no error in buffer wich should get an int, then call indexer
+    if(sscanf(input_buffer, "%d", &printNum)==1){
+			indexer(&array, printNum);
     }
-    else{
-      // check if they entered int.
-      // printf("user input: %d\n", printNum);
-      indexer(&array, printNum);
-    }
+
     printf("Would you like to add another list item to the array?(y/n) \n");
     readline(input_buffer, INPUT_BUFFER_SIZE);
     sscanf(input_buffer, "%1s", &answer);

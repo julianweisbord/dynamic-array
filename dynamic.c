@@ -30,7 +30,8 @@ void doubleList(struct myArray *array){
       array->data[i] = new_array[i];
     }
     array->length*=2;
-
+    free(new_array);
+    new_array = NULL;
   }
 }
 
@@ -82,12 +83,15 @@ void pop_array(struct myArray * array){
 
 // Free array
 void clear(struct myArray *array){
-  int i;
-  for(i=0; i< array->current_size; ++i){
-    printf("This is what will be freed: %d\n",array->data[i]);
-    free(array->data[i]);
-    array->data[i] =NULL;
-  }
+  free(array->data);
+  array->data = NULL;
+  // int i;
+  // for(i=0; i< array->current_size; ++i){
+  //   printf("This is what will be freed: %d\n",array->data[i]);
+  //   free(array->data[i]);
+  //   array->data[i] =NULL;
+  // }
   printf("Array Should Be Empty: \n");
   printer(array);
+  // array->current_size =0;
 }
